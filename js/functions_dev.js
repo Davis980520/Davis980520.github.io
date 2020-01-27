@@ -100,7 +100,7 @@ function timeElapse(){
 	
 	var days = parseInt(difftime / 86400);
    	var hours = parseInt(difftime / 3600) - 24 * days;
-   	var minutes = parseInt(difftime % 3600 / 60);
+   	var minutes = parseInt((difftime % 3600) / 60);
    	var seconds = parseInt(difftime % 60);
 	
 	// var current = new Date();
