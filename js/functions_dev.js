@@ -92,12 +92,23 @@ function startHeartAnimation() {
 	};
 })(jQuery);
 
-function timeElapse(date){
-	var current = new Date();
-	var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
-	var days = Math.floor(seconds / (3600 * 24));
-	seconds = seconds % (3600 * 24);
-	var hours = Math.floor(seconds / 3600);
+function timeElapse(){
+	var new_date = new Date(); //新建一个日期对象，默认现在的时间
+	var old_date = new Date("2019-1-26 00:00:00"); //设置过去的一个时间点，"yyyy-MM-dd HH:mm:ss"格式化日期
+	
+	var difftime = (new_date - old_date) / 1000; //计算时间差,并把毫秒转换成秒
+	
+	var days = parseInt(difftime / 86400);
+   	var hours = parseInt(difftime / 3600) - 24 * days;
+   	var minutes = parseInt(difftime % 3600 / 60);
+   	var seconds = parseInt(difftime % 60);
+	
+	// var current = new Date();
+	// var seconds = (Date.parse(current) - Date.parse(date)) / 1000;
+	// var days = Math.floor(seconds / (3600 * 24)) + 31;
+	// seconds = seconds % (3600 * 24);
+	// var hours = Math.floor(seconds / 3600);
+	
 	if (hours < 10) {
 		hours = "0" + hours;
 	}
